@@ -459,7 +459,7 @@ Transform:
   m_Children:
   - {fileID: 1727251186}
   m_Father: {fileID: 162691676}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 1.0560001, y: 0, z: 0}
 --- !u!95 &717479328
 Animator:
   serializedVersion: 5
@@ -468,12 +468,12 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 717479326}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 736876aabf44b0045889ba40007fa0bd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 049f661d12746de4da2057c51f04fb4c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -775,7 +775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f556cd5679e8eb428d3f9de52b07b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 1000
+  mouseSensitivity: 100
   playerBody: {fileID: 162691676}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
