@@ -13,17 +13,13 @@ public class EnemyBehaviourScript : MonoBehaviour
 
     private int _locationIndex = 0;
     private NavMeshAgent _agent;
-    private CapsuleCollider _col;
-    private Transform _tra;
     private bool PlayerCaught = false;
     private bool FlashOn = false;
 
 
     void Start()
     {
-        _col = GetComponent<CapsuleCollider>();
         _agent = GetComponent<NavMeshAgent>();
-        _tra = GetComponent<Transform>();
 
 
         Player = GameObject.Find("Player").transform;
@@ -57,23 +53,38 @@ public class EnemyBehaviourScript : MonoBehaviour
             MoveToNextPatrolLocation();
         }
     }
+/*
+    void OnCollisionEnter(Collider other)
+    {    
+        LastPosition = Player.Transform
 
-    void OnTriggerEnter(Collider other)
-    {
         if(other.name == "Player")
         {
-            _agent.destination = Player.position; 
-
-            if(_tra == Player.transform)
+            if(FlashOn)
             {
-                Debug.Log("You died");
+                _agent.destination = Player.position; 
             }
+            else
+            {
+               _agent.destination = PlayerLastPosition; 
+            }
+            
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if
+        if(other.name == "Player")
+        {
+            if(PlayerCaught == false)
+            {
+                if(Position == PlayerLastPosition !& )
+                {
+                    _agent.destination = PlayerLastPosition; 
+                }      
+            }
+            
+        }
     }
-
+*/
 }
