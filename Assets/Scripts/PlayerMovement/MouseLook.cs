@@ -7,12 +7,16 @@ public class MouseLook : MonoBehaviour
 
     public float mouseSensitivity = 100f;
 
+    public GameObject flashlight;
+    public bool flashlightEnabled = true;
     public Transform playerBody;
 
     float xRotation = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
+        
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -28,5 +32,16 @@ public class MouseLook : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 
         playerBody.Rotate(Vector3.up * mouseX);
+
+        if (Input.GetMouseButtonDown(0) && flashlightEnabled == true)
+        {
+            flashlight.SetActive(false);
+            flashlightEnabled = false;
+        }
+        else if (Input.GetMouseButtonDown(0) && flashlightEnabled == false)
+        {
+            flashlight.SetActive(true);
+            flashlightEnabled = true;
+        }
     }
 }
