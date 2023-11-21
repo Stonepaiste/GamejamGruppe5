@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController controller;
 
     public float speed = 12f;
+
+    public float gravity = -9.81f;
+    Vector3 velocity;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +27,10 @@ public class PlayerMovement : MonoBehaviour
     
         controller.Move(move * speed * Time.deltaTime);
     
+    //gravity
+    //vi sætter vores velocity på y axen og giver den en force som er "gravity"
+        velocity.y = gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
     }
 }
