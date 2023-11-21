@@ -188,7 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f556cd5679e8eb428d3f9de52b07b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 1000
+  mouseSensitivity: 400
   playerBody: {fileID: 3230947489357170162}
 --- !u!1 &6765709397435957861
 GameObject:
@@ -200,7 +200,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3230947489357170162}
   - component: {fileID: 8577561380618917967}
-  - component: {fileID: 2568701972900110790}
   - component: {fileID: 1101443884294408422}
   m_Layer: 0
   m_Name: FirstPersonPlayer
@@ -252,33 +251,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &2568701972900110790
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6765709397435957861}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1101443884294408422
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +265,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 8577561380618917967}
   speed: 4
+  gravity: -100
 --- !u!1 &7091054712352468800
 GameObject:
   m_ObjectHideFlags: 0
@@ -336,7 +309,7 @@ Animator:
   m_GameObject: {fileID: 7091054712352468800}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 736876aabf44b0045889ba40007fa0bd, type: 2}
+  m_Controller: {fileID: 9100000, guid: 049f661d12746de4da2057c51f04fb4c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
