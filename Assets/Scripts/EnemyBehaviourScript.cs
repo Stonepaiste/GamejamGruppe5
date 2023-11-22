@@ -3,35 +3,60 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 //The general movement of the enemy is very inspired by the book "Learning C# by Developing Games with Unity 2021" by Harrison Ferrone
+//The code made for approaching the Player was also made by the help of feedback from Chat_GBT
 
 public class EnemyBehaviourScript : MonoBehaviour
 {
-    public Transform Player;
+    public bool FlashOn = true;
     public Transform PatrolRoute;
     public List<Transform> Locations;
-    public Collider ChaseRange;
-
-    private int _locationIndex = 0;
+    
+    private Transform Player;
     private NavMeshAgent _agent;
-    private bool PlayerCaught = false;
-    private bool FlashOn = false;
+    private float reachedDestinationThreshold = 0.2f;
+    private int _locationIndex = 0;
+    
+    private GameObject LastPosition;
+    private bool PlayerInRange = false;
 
 
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-
-
-        Player = GameObject.Find("Player").transform;
+        Player = GameObject.Find("FirstPersonPlayer").transform;
 
         InitializePatrolRoute();
         MoveToNextPatrolLocation();
     }
 
+    void Update()
+    {
+        if (_agent.remainingDistance < reachedDestinationThreshold && !_agent.pathPending)
+        {
+            MoveToNextPatrolLocation();
+        }
+
+        if (PlayerInRange && FlashOn)
+        {
+            _agent.destination = Player.position;
+        }
+
+        if (!FlashOn && LastPosition != null)
+        {
+            _agent.destination = LastPosition.transform.position;
+
+            if (Vector3.Distance(transform.position, LastPosition.transform.position) < reachedDestinationThreshold)
+            {
+                Destroy(LastPosition);
+            }
+
+        }
+    }
+
     void InitializePatrolRoute()
     {
-        foreach(Transform child in PatrolRoute)
-        {   
+        foreach (Transform child in PatrolRoute)
+        {
             Locations.Add(child);
         }
     }
@@ -42,49 +67,30 @@ public class EnemyBehaviourScript : MonoBehaviour
             return;
 
         _agent.destination = Locations[_locationIndex].position;
-
         _locationIndex = (_locationIndex + 1) % Locations.Count;
+
     }
 
-    void Update()
+    void OnTriggerEnter(Collider other)
     {
-       if(_agent.remainingDistance < 0.2f && !_agent.pathPending)
+        if (other.name == "FirstPersonPlayer")
         {
-            MoveToNextPatrolLocation();
-        }
-    }
-/*
-    void OnCollisionEnter(Collider other)
-    {    
-        LastPosition = Player.Transform
+            PlayerInRange = true;
+            if (FlashOn && LastPosition == null)
+            {
+                LastPosition = new GameObject("LastPosition");
+                LastPosition.transform.position = Player.position;
+            }
 
-        if(other.name == "Player")
-        {
-            if(FlashOn)
-            {
-                _agent.destination = Player.position; 
-            }
-            else
-            {
-               _agent.destination = PlayerLastPosition; 
-            }
-            
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if(other.name == "Player")
+        if (other.name == "FirstPersonPlayer")
         {
-            if(PlayerCaught == false)
-            {
-                if(Position == PlayerLastPosition !& )
-                {
-                    _agent.destination = PlayerLastPosition; 
-                }      
-            }
-            
+            PlayerInRange = false;
+            Destroy(LastPosition);
         }
     }
-*/
 }
