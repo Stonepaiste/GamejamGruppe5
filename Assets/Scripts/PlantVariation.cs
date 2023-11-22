@@ -10,12 +10,11 @@ public class PlantVariation : MonoBehaviour
     public float maxRot;
     public float minRot;
 
-    void Awake()
+    void Start()
     {
-        transform.Rotate(0, Random.Range(minRot, maxRot), 0);
+        transform.Rotate(0, transform.rotation.y + Random.Range(minRot, maxRot), 0);
 
         float sizefloat = Random.Range(minHeight, maxHeight);
         transform.localScale += new Vector3(sizefloat, sizefloat, sizefloat);
-
     }
 }
