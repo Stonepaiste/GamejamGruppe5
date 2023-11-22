@@ -20,10 +20,9 @@ public class MouseLook : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate() 
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+           float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
     
         xRotation -= mouseY;
@@ -33,8 +32,11 @@ public class MouseLook : MonoBehaviour
 
         playerBody.Rotate(Vector3.up * mouseX);
 
-        
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
         if (Input.GetMouseButtonDown(0) && flashlightEnabled == true)
         {
             flashlight.SetActive(false);
