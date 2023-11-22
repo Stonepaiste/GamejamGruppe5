@@ -92,7 +92,7 @@ public class PlayerAudio : MonoBehaviour
     public bool isInTriggerzone = false;
 
     //Character damage
-    void OnTriggerEnter(BoxCollider other)
+    void OnTriggerEnter(Collider other)
     {
         //play attack audio example
         //This is the code to actually play the sound, logic on when to play has been removed for clarity reasons
@@ -106,7 +106,7 @@ public class PlayerAudio : MonoBehaviour
         
     }
 
-    private void OnTriggerExit(BoxCollider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other.name ==("MeshFenceHoletrigger"))
                 {
