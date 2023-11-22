@@ -9,13 +9,15 @@ public class PlayerAudio : MonoBehaviour
     PlayerMovement pm;
 
     //Singular action sounds
-    public AudioClip Playerattack;
+    public AudioClip fencesound;
     //Looping sounds
     public AudioClip playerfootsteps;
+    public AudioClip Owl;
 
     //Loop control booleans
     public bool playFootsteps = false;
     public bool startedPlaying = false;
+   
 
     // The minimum distance the object must move before the sound is played
     //public float minMoveDistance = 0.1f;
@@ -86,13 +88,32 @@ public class PlayerAudio : MonoBehaviour
         //playerfootsteps = false;
         //startedPlaying = false;
     }
+    
+    public bool isInTriggerzone = false;
 
     //Character damage
-    void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter(BoxCollider other)
     {
         //play attack audio example
         //This is the code to actually play the sound, logic on when to play has been removed for clarity reasons
         //You will need to add this logic for your specific game
-        soundController.PlaySound(Playerattack);
+
+        if (other.name ==("MeshFenceHoletrigger"))
+        {
+            soundController.PlaySound(fencesound);
+            isInTriggerzone = true;
+        }
+        
+    }
+
+    private void OnTriggerExit(BoxCollider other)
+    {
+        if (other.name ==("MeshFenceHoletrigger"))
+                {
+            soundController.StopLoopSound();
+            isInTriggerzone = false;
+
+
+        }
     }
 }
