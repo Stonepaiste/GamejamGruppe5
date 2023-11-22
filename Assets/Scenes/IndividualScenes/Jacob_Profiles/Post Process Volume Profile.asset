@@ -24,7 +24,7 @@ MonoBehaviour:
     value: {fileID: 0}
     defaultState: 1
   tonemapper:
-    overrideState: 1
+    overrideState: 0
     value: 1
   toneCurveToeStrength:
     overrideState: 0
@@ -1323,7 +1323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40b924e2dad56384a8df2a1e111bb675, type: 3}
   m_Name: Vignette
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -1376,13 +1376,13 @@ MonoBehaviour:
     value: 0
   intensity:
     overrideState: 1
-    value: 1
+    value: 0.645
   size:
     overrideState: 1
-    value: 1.75
+    value: 1.9
   lumContrib:
-    overrideState: 1
-    value: 0.5
+    overrideState: 0
+    value: 1
 --- !u!114 &-1891993901688892920
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1438,13 +1438,13 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 10
+    value: 13.55
   aperture:
     overrideState: 1
-    value: 5.6
+    value: 28.9
   focalLength:
     overrideState: 1
-    value: 50
+    value: 146
   kernelSize:
     overrideState: 1
     value: 1
@@ -1460,19 +1460,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b77c5407dc277943b591ade9e6b18c5, type: 3}
   m_Name: LensDistortion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
   intensity:
     overrideState: 1
-    value: 11.8
+    value: 54
   intensityX:
     overrideState: 1
-    value: 0.342
+    value: 0.18
   intensityY:
     overrideState: 1
-    value: 1
+    value: 0.645
   centerX:
     overrideState: 1
     value: 0
@@ -1518,7 +1518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1cb7e9e120078f43bce4f0b1be547a7, type: 3}
   m_Name: AmbientOcclusion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 1
@@ -1527,7 +1527,7 @@ MonoBehaviour:
     value: 0
   intensity:
     overrideState: 1
-    value: 1.28
+    value: 0
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -1577,7 +1577,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.59
+    value: 0.628
   fastMode:
     overrideState: 0
     value: 1
@@ -1621,13 +1621,13 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 12.65
+    value: 11.6
   threshold:
     overrideState: 1
     value: 0.2
   softKnee:
     overrideState: 1
-    value: 1
+    value: 0.444
   clamp:
     overrideState: 1
     value: 65472
