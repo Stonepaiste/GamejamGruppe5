@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 8990329582229213557}
   - component: {fileID: 5122355296114301886}
   - component: {fileID: 4768025092023480902}
-  - component: {fileID: 4139508866869775740}
+  - component: {fileID: 1522845202862858193}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -191,11 +191,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f556cd5679e8eb428d3f9de52b07b8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 200
+  mouseSensitivity: 150
   flashlight: {fileID: 0}
   flashlightEnabled: 1
   playerBody: {fileID: 3230947489357170162}
---- !u!114 &4139508866869775740
+--- !u!114 &1522845202862858193
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
