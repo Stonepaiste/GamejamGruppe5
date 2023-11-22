@@ -7,7 +7,7 @@ using UnityEngine.AI;
 
 public class EnemyBehaviourScript : MonoBehaviour
 {
-    public bool FlashOn = true;
+    public bool FlashOn;
     public Transform PatrolRoute;
     public List<Transform> Locations;
     
@@ -18,12 +18,14 @@ public class EnemyBehaviourScript : MonoBehaviour
     
     private GameObject LastPosition;
     private bool PlayerInRange = false;
+    private MouseLook mouseLookScript;
 
 
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         Player = GameObject.Find("FirstPersonPlayer").transform;
+        mouseLookScript = FindObjectOfType<MouseLook>();
 
         InitializePatrolRoute();
         MoveToNextPatrolLocation();
@@ -31,6 +33,8 @@ public class EnemyBehaviourScript : MonoBehaviour
 
     void Update()
     {
+        FlashOn = mouseLookScript.flashlightEnabled;
+
         if (_agent.remainingDistance < reachedDestinationThreshold && !_agent.pathPending)
         {
             MoveToNextPatrolLocation();
@@ -49,7 +53,6 @@ public class EnemyBehaviourScript : MonoBehaviour
             {
                 Destroy(LastPosition);
             }
-
         }
     }
 
