@@ -98,7 +98,7 @@ public class PlayerAudio : MonoBehaviour
         //This is the code to actually play the sound, logic on when to play has been removed for clarity reasons
         //You will need to add this logic for your specific game
 
-        if (other.name ==("MeshFenceHoletrigger"))
+        if (other.name ==("Fences"))
         {
             soundController.PlaySound(fencesound);
             isInTriggerzone = true;
@@ -108,7 +108,7 @@ public class PlayerAudio : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.name ==("MeshFenceHoletrigger"))
+        if (other.name ==("Fences"))
                 {
             soundController.StopLoopSound();
             isInTriggerzone = false;
