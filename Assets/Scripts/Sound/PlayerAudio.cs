@@ -55,13 +55,13 @@ public class PlayerAudio : MonoBehaviour
             // previousPosition = transform.position;
            
             playFootsteps = true;
-            print ("true");
+            //print ("true");
         }
         else 
         {
            
            playFootsteps = false;
-            print("false)");
+            //print("false)");
 
         }
 
