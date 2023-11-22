@@ -673,6 +673,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 596630884428009309}
+  - component: {fileID: -6238583025243883259}
   m_Layer: 0
   m_Name: Lowpoly
   m_TagString: Untagged
@@ -690,8 +691,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 4, y: 4, z: 4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 22935332814592717}
   - {fileID: 8763423021254836631}
@@ -706,6 +707,22 @@ Transform:
   - {fileID: 3292679544446247005}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-6238583025243883259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7522434818416922562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47ea3918455e14f489360f3338df50ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHeight: 0
+  minHeight: 0
+  maxRot: 180
+  minRot: 0
 --- !u!1 &8086866360970280600
 GameObject:
   m_ObjectHideFlags: 0
