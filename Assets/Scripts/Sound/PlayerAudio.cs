@@ -9,6 +9,7 @@ public class PlayerAudio : MonoBehaviour
     PlayerMovement pm;
 
     //Singular action sounds
+    // Sound to play
     public AudioClip fencesound;
     //Looping sounds
     public AudioClip playerfootsteps;
@@ -88,30 +89,35 @@ public class PlayerAudio : MonoBehaviour
         //playerfootsteps = false;
         //startedPlaying = false;
     }
-    
+
+
+    // Flag to check if the object is inside the trigger zone
     public bool isInTriggerzone = false;
 
-    //Character damage
-    void OnTriggerEnter(BoxCollider other)
+    // Called when another collider enters the trigger zone
+    void OnTriggerEnter(Collider other)
     {
-        //play attack audio example
-        //This is the code to actually play the sound, logic on when to play has been removed for clarity reasons
-        //You will need to add this logic for your specific game
-
-        if (other.name ==("MeshFenceHoletrigger"))
+        
+        if (other.name ==("Fences"))
         {
+            // Play the sound when the player enters the trigger zone
             soundController.PlaySound(fencesound);
             isInTriggerzone = true;
+            Debug.Log("Entered the trigger zone");
         }
         
     }
 
-    private void OnTriggerExit(BoxCollider other)
+
+    // Called when another collider exits the trigger zone
+    public void OnTriggerExit(Collider other)
     {
-        if (other.name ==("MeshFenceHoletrigger"))
+        // Stop the sound when the player exits the trigger zone
+        if (other.name ==("Fences"))
                 {
             soundController.StopLoopSound();
             isInTriggerzone = false;
+            Debug.Log("Exited the trigger zone");
 
 
         }
