@@ -33,8 +33,6 @@ public class MouseLook : MonoBehaviour
 
         playerBody.Rotate(Vector3.up * mouseX);
 
-        
-
         if (Input.GetMouseButtonDown(0) && flashlightEnabled == true)
         {
             flashlight.SetActive(false);
