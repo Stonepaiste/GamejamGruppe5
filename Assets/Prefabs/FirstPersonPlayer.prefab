@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 3230947489357170162}
   - component: {fileID: 8577561380618917967}
   - component: {fileID: 1101443884294408422}
+  - component: {fileID: 7993756354868091693}
   m_Layer: 0
   m_Name: FirstPersonPlayer
   m_TagString: Untagged
@@ -376,7 +377,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 8577561380618917967}
   speed: 4
+  isMoving: 0
   gravity: -100
+  player: {fileID: 0}
+  Enemy: {fileID: 0}
+--- !u!136 &7993756354868091693
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6765709397435957861}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.83692527
+  m_Height: 4.4305162
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.06123972, z: 0.000118494034}
 --- !u!1 &7091054712352468800
 GameObject:
   m_ObjectHideFlags: 0
