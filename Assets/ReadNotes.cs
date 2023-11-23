@@ -57,14 +57,14 @@ public class ReadNotes : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
-    }
-
-
-    public void exitButton()
+     if (Input.GetKey(KeyCode.Tab))
         {
             noteUI.SetActive(false);
             hud.SetActive(true);
             inv.SetActive(true);
             player.GetComponent<CharacterController>().enabled = true;
         }
+    }
+
+
     }
