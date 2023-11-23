@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,7 +22,15 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 12f;
 
+    public Animator cameraAnim;
+
+    public bool canMove;
+
+    public bool isDead;
+
     public bool isMoving;
+
+    public float timeUntilRespawn = 5;
 
     // Tyngdekraft, der påvirker spillerens fald
     public float gravity = -9.81f;
@@ -33,11 +42,11 @@ public class PlayerMovement : MonoBehaviour
     {
         // Initialiserer CharacterController
         controller = GetComponent<CharacterController>();
+        canMove = true;
     }
 
     void Update()
     {
-        
         handleCrouch();
     }
 
@@ -59,11 +68,13 @@ public class PlayerMovement : MonoBehaviour
         // Hvis spilleren croucher, bevæger den sig langsommere, ellers med normal hastighed
         if (isCrouching)
         {
-            controller.Move(move * crouchSpeed * Time.deltaTime);
+            if(canMove)
+                controller.Move(move * crouchSpeed * Time.deltaTime);
         }
         else
         {
-            controller.Move(move * speed * Time.deltaTime);
+            if(canMove)
+                controller.Move(move * speed * Time.deltaTime);
         }
 
         // Simulerer tyngdekraft
@@ -81,5 +92,22 @@ public class PlayerMovement : MonoBehaviour
 
         // Opdaterer isCrouching baseret på om venstre kontroltast holdes nede
         isCrouching = Input.GetKey(KeyCode.LeftControl);
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy") && other.GetType() == typeof(CapsuleCollider))
+        {
+            isDead = true;
+            canMove = false;
+            cameraAnim.SetBool("IsDead", true);
+            StartCoroutine(Respawn());
+        }
+    }
+
+    private IEnumerator Respawn()
+    {
+        yield return new WaitForSeconds(timeUntilRespawn);
+        SceneManager.LoadScene(1);
     }
 }

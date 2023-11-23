@@ -1338,7 +1338,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.4
+    value: 0.137
   smoothness:
     overrideState: 1
     value: 0.612
@@ -1419,7 +1419,7 @@ MonoBehaviour:
     value: 0.5
   vignette:
     overrideState: 1
-    value: 0.444
+    value: 0.317
 --- !u!114 &-1144109224309876628
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1438,13 +1438,13 @@ MonoBehaviour:
     value: 1
   focusDistance:
     overrideState: 1
-    value: 13.55
+    value: 6.95
   aperture:
     overrideState: 1
-    value: 28.9
+    value: 23.5
   focalLength:
     overrideState: 1
-    value: 146
+    value: 168
   kernelSize:
     overrideState: 1
     value: 1
@@ -1466,22 +1466,22 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 54
+    value: 32
   intensityX:
     overrideState: 1
-    value: 0.18
+    value: 0.32
   intensityY:
     overrideState: 1
-    value: 0.645
+    value: 0.256
   centerX:
     overrideState: 1
-    value: 0
+    value: 0.18
   centerY:
     overrideState: 1
-    value: 0
+    value: 0.14
   scale:
     overrideState: 1
-    value: 1
+    value: 0.84
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1577,7 +1577,7 @@ MonoBehaviour:
     defaultState: 1
   intensity:
     overrideState: 1
-    value: 0.61
+    value: 0.71
   fastMode:
     overrideState: 1
     value: 1
