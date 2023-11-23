@@ -12,7 +12,7 @@ public class PlayerAudio : MonoBehaviour
     public AudioClip fencesound;
     //Looping sounds
     public AudioClip playerfootsteps;
-    public AudioClip Owl;
+    public AudioClip death;
 
     //Loop control booleans
     public bool playFootsteps = false;
@@ -91,6 +91,8 @@ public class PlayerAudio : MonoBehaviour
     
     public bool isInTriggerzone = false;
 
+    private bool canPlay = true;
+
     //Character damage
     void OnTriggerEnter(Collider other)
     {
@@ -102,18 +104,23 @@ public class PlayerAudio : MonoBehaviour
         {
             soundController.PlaySound(fencesound);
             isInTriggerzone = true;
+        };
+
+        if(other.name == "Enemy1" && other.GetType() == typeof(CapsuleCollider) && canPlay == true || other.name == "Enemy2" && other.GetType() == typeof(CapsuleCollider) && canPlay == true)
+        {
+            canPlay = false;
+            soundController.PlaySound(death);
+            isInTriggerzone = true;
         }
-        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.name ==("Fences"))
-                {
+        if (other.name == "Fences" )
+        {
             soundController.StopLoopSound();
             isInTriggerzone = false;
-
-
         }
     }
+
 }

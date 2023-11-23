@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fence
+  - Enemy
+<<<<<<< HEAD
+  - Reach
+=======
+>>>>>>> d00beb5029fde4945a6b2545d3b3ad3b4fe754ef
   layers:
   - Default
   - TransparentFX
@@ -13,7 +18,7 @@ TagManager:
   - Water
   - UI
   - PP
-  - 
+  - Terrain
   - 
   - 
   - 
