@@ -195,6 +195,7 @@ MonoBehaviour:
   flashlight: {fileID: 0}
   flashlightEnabled: 1
   playerBody: {fileID: 3230947489357170162}
+  player: {fileID: 1101443884294408422}
 --- !u!114 &1522845202862858193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -412,7 +413,10 @@ MonoBehaviour:
   crouchSpeed: 6
   crouchSmoothTime: 0.5
   speed: 4
+  cameraAnim: {fileID: 7614694888846523442}
+  canMove: 0
   isMoving: 0
+  timeUntilRespawn: 5
   gravity: -100
 --- !u!136 &7993756354868091693
 CapsuleCollider:
@@ -481,7 +485,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 922a16c17194347e9abe32732e999365, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.27
+  m_Volume: 0.173
   m_Pitch: 1
   Loop: 1
   Mute: 0
