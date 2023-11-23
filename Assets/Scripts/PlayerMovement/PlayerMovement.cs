@@ -45,7 +45,6 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        
         handleCrouch();
     }
 
@@ -107,6 +106,5 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(timeUntilRespawn);
         SceneManager.LoadScene(1);
-        
     }
 }
