@@ -7,7 +7,7 @@ public class winscript : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("PLayer"))
+        if (other.CompareTag("Player"))
         {
             SceneManager.LoadScene(2);
         }
