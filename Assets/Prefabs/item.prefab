@@ -334,8 +334,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 19.977913, y: 4.758864, z: 21.950092}
+  m_Center: {x: -0.3667839, y: 1.8794324, z: 1.0812037}
 --- !u!114 &7786213936927202460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,10 +348,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff6186092f10964eb7f96ec8a7afaea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   noteUI: {fileID: 806130163565333225}
-  hud: {fileID: 0}
-  inv: {fileID: 0}
+  playerCanvas: {fileID: 0}
   pickUpText: {fileID: 7295147896414075887}
+  pm: {fileID: 0}
+  pressF: {fileID: 0}
   InReach: 0
-  controller: {fileID: 0}

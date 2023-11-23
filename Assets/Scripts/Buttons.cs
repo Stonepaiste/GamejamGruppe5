@@ -20,9 +20,16 @@ public class Buttons : MonoBehaviour
     public GameObject introVid;
     public AudioSource audioSource;
 
+
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.None;
+    }
+
     public void OnPlay()
     {
         StartCoroutine(PlayIntro());
+        
     }
 
     public void OnQuit()
