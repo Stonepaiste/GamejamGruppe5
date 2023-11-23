@@ -5,68 +5,59 @@ using UnityEngine;
 
 public class ReadNotes : MonoBehaviour
 {
-    public GameObject player;
-    public GameObject noteUI;
-    public GameObject hud;
-    public GameObject inv;
+    //public GameObject player;
+    public GameObject noteCanvas;
+    public GameObject playerCanvas;
 
-    public GameObject pickUpText;
+    public GameObject pickUpNote;
+
+    public PlayerMovement pm;
+
+    public GameObject pressF;
 
     public bool InReach;
-
-    public CharacterController controller;
 
     // Start is called before the first frame update
     void Start()
     {
-        noteUI.SetActive(false);
-        hud.SetActive(true);
-        inv.SetActive(true);
-        pickUpText.SetActive(false);
-        controller = GetComponent<CharacterController>();
+        noteCanvas.SetActive(false);
+        pickUpNote.SetActive(false);
+        //controller = GetComponent<CharacterController>();
         InReach = false;
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Reach")
+        if (other.gameObject.tag == "Player")
         {
+            pressF.SetActive(true);
             InReach = true;
-            pickUpText.SetActive(true);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.tag == "Reach")
+        if (other.gameObject.tag == "Player")
         {
             InReach = false;
-            pickUpText.SetActive(false);
+            pressF.SetActive(false);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-     if(Input.GetKey(KeyCode.F) && InReach)
+        if(Input.GetKeyDown(KeyCode.F) && InReach && noteCanvas.activeInHierarchy == false)
         {
-            noteUI.SetActive(true);
-            hud.SetActive(false);
-            inv.SetActive(false);
-            controller.enabled = false;
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-
-            
+            pm.canMove = false;
+            noteCanvas.SetActive(true);
+            pickUpNote.SetActive(true);
+            pressF.SetActive(false);
         }
-     if (Input.GetKey(KeyCode.Tab))
+        else if (Input.GetKeyDown(KeyCode.F) && noteCanvas.activeInHierarchy == true)
         {
-            noteUI.SetActive(false);
-            hud.SetActive(true);
-            inv.SetActive(true);
-            player.GetComponent<CharacterController>().enabled = true;
+            pm.canMove = true;
+            noteCanvas.SetActive(false);
         }
     }
-
-
-    }
+}
