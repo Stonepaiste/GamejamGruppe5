@@ -53,9 +53,11 @@ public class ReadNotes : MonoBehaviour
             noteUI.SetActive(true);
             hud.SetActive(false);
             inv.SetActive(false);
-            player.GetComponent<CharacterController>().enabled = false;
+            controller.enabled = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
+
+            
         }
      if (Input.GetKey(KeyCode.Tab))
         {

@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &869576705641422879
 RectTransform:
   m_ObjectHideFlags: 0
@@ -164,7 +164,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 5ab7f5879c106c94abf48969d67f4c54, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 2162703473638677237}
   - component: {fileID: 1579874426801329381}
   m_Layer: 5
-  m_Name: note
+  m_Name: notepopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,6 +291,7 @@ GameObject:
   - component: {fileID: 3469236168625530630}
   - component: {fileID: 2027662123547552924}
   - component: {fileID: 5743004073935918496}
+  - component: {fileID: 7786213936927202460}
   m_Layer: 0
   m_Name: item
   m_TagString: Untagged
@@ -308,8 +309,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.07237625, y: 1.2000628, z: -10.205517}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.16, y: 0.16, z: 0.16}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 869576705641422879}
   - {fileID: 8172911608728592826}
@@ -348,3 +349,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 546c8c5ffbb32074f87a87fa04d4dac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7786213936927202460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7825579654128067912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eff6186092f10964eb7f96ec8a7afaea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  noteUI: {fileID: 806130163565333225}
+  hud: {fileID: 0}
+  inv: {fileID: 0}
+  pickUpText: {fileID: 7295147896414075887}
+  InReach: 0
+  controller: {fileID: 0}
