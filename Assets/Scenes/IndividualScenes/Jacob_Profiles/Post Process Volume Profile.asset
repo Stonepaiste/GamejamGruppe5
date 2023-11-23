@@ -1338,7 +1338,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.4
+    value: 0.137
   smoothness:
     overrideState: 1
     value: 0.612
@@ -1419,7 +1419,7 @@ MonoBehaviour:
     value: 0.5
   vignette:
     overrideState: 1
-    value: 0.444
+    value: 0.317
 --- !u!114 &-1144109224309876628
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1475,13 +1475,13 @@ MonoBehaviour:
     value: 0.256
   centerX:
     overrideState: 1
-    value: 0.03
+    value: 0.18
   centerY:
     overrideState: 1
     value: 0.14
   scale:
     overrideState: 1
-    value: 1
+    value: 0.84
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0

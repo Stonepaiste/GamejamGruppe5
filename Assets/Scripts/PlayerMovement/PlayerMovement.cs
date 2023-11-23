@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
     public bool canMove;
 
+    public bool isDead;
+
     public bool isMoving;
 
     public float timeUntilRespawn = 5;
@@ -96,6 +98,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (other.CompareTag("Enemy") && other.GetType() == typeof(CapsuleCollider))
         {
+            isDead = true;
             canMove = false;
             cameraAnim.SetBool("IsDead", true);
             StartCoroutine(Respawn());

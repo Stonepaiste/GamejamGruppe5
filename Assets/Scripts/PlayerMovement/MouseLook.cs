@@ -17,7 +17,6 @@ public class MouseLook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         Cursor.lockState = CursorLockMode.Locked;
     }
 
@@ -37,16 +36,18 @@ public class MouseLook : MonoBehaviour
             playerBody.Rotate(Vector3.up * mouseX);
         }
 
-
-        if (Input.GetMouseButtonDown(0) && flashlightEnabled == true)
+        if (player.canMove)
         {
-            flashlight.SetActive(false);
-            flashlightEnabled = false;
-        }
-        else if (Input.GetMouseButtonDown(0) && flashlightEnabled == false)
-        {
-            flashlight.SetActive(true);
-            flashlightEnabled = true;
+            if (Input.GetMouseButtonDown(0) && flashlightEnabled == true)
+            {
+                flashlight.SetActive(false);
+                flashlightEnabled = false;
+            }
+            else if (Input.GetMouseButtonDown(0) && flashlightEnabled == false)
+            {
+                flashlight.SetActive(true);
+                flashlightEnabled = true;
+            }
         }
     }
 }
