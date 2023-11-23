@@ -32,6 +32,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float timeUntilRespawn = 5;
 
+
+
     // Tyngdekraft, der påvirker spillerens fald
     public float gravity = -9.81f;
 
@@ -93,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
         // Opdaterer isCrouching baseret på om venstre kontroltast holdes nede
         isCrouching = Input.GetKey(KeyCode.LeftControl);
     }
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy") && other.GetType() == typeof(CapsuleCollider))
