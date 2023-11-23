@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Video;
 
 public class Buttons : MonoBehaviour
 {
     public float waitToPlayTime;
-    public float imageFadetime = 2;
     public float fadeMusic;
     public float targetVol;
 
-    public GameObject introText;
-    public Image introImage;
-    public GameObject introIm;
+    public GameObject background;
+    public VideoPlayer vid;
 
+    public GameObject playBut;
+    public GameObject quitBut;
+
+    public GameObject introVid;
     public AudioSource audioSource;
 
     public void OnPlay()
@@ -29,19 +32,12 @@ public class Buttons : MonoBehaviour
 
     private IEnumerator PlayIntro()
     {
-        introIm.SetActive(true);
-
-        for (float i = 0; i <= imageFadetime; i += Time.deltaTime)
-        {
-            // set color with i as alpha
-            introImage.color = new Color(0, 0, 0, i);
-            yield return null;
-        }
-
-        introText.SetActive(true);
-
-
+        background.SetActive(false);
         StartCoroutine(FadeMusic());
+        playBut.SetActive(false);
+        quitBut.SetActive(false);
+        introVid.SetActive(true);
+        vid.Play();
         yield return new WaitForSeconds(waitToPlayTime);
         SceneManager.LoadScene(1);
     }
