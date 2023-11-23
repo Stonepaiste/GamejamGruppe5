@@ -8,9 +8,10 @@ public class ReadNotes : MonoBehaviour
     public GameObject player;
     public GameObject noteUI;
     public GameObject hud;
-    public GameObject inv;
 
     public GameObject pickUpText;
+
+    public PlayerMovement pm;
 
     public bool InReach;
 
@@ -21,7 +22,6 @@ public class ReadNotes : MonoBehaviour
     {
         noteUI.SetActive(false);
         hud.SetActive(true);
-        inv.SetActive(true);
         pickUpText.SetActive(false);
         controller = GetComponent<CharacterController>();
         InReach = false;
@@ -50,9 +50,9 @@ public class ReadNotes : MonoBehaviour
     {
      if(Input.GetKey(KeyCode.F) && InReach)
         {
+            pm.canMove = false;
             noteUI.SetActive(true);
             hud.SetActive(false);
-            inv.SetActive(false);
             controller.enabled = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -61,9 +61,9 @@ public class ReadNotes : MonoBehaviour
         }
      if (Input.GetKey(KeyCode.Tab))
         {
+            pm.canMove = true;
             noteUI.SetActive(false);
             hud.SetActive(true);
-            inv.SetActive(true);
             player.GetComponent<CharacterController>().enabled = true;
         }
     }
