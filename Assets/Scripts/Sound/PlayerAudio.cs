@@ -10,19 +10,15 @@ public class PlayerAudio : MonoBehaviour
 
     //Singular action sounds
     public AudioClip fencesound;
+    public AudioClip death;
+   // public AudioClip monstergrowl;
     //Looping sounds
     public AudioClip playerfootsteps;
-    public AudioClip death;
+
 
     //Loop control booleans
     public bool playFootsteps = false;
     public bool startedPlaying = false;
-   
-
-    // The minimum distance the object must move before the sound is played
-    //public float minMoveDistance = 0.1f;
-    // The position of the object in the previous frame
-    //public Vector3 previousPosition;
 
 
 
@@ -69,43 +65,67 @@ public class PlayerAudio : MonoBehaviour
             startedPlaying = false;
 
         }
-
-
-    
-
       
     }
-    
+
+    //Creating and setting a bool variable we will use to play a sound when collinding with a given collider.
     public bool isInTriggerzone = false;
 
     private bool canPlay = true;
 
-    //Character damage
+    // Below is our collider part This checks if the collider (our Player) that entered the trigger zone has the name "Fences or "enemy"."
+    //If so, it plays a sound associated with it fences(fencesound) && death
+    //using the soundController and sets isInTriggerzone to true.
+   
     void OnTriggerEnter(Collider other)
     {
-        //play attack audio example
-        //This is the code to actually play the sound, logic on when to play has been removed for clarity reasons
-        //You will need to add this logic for your specific game
+        
 
         if (other.name ==("Fences"))
         {
             soundController.PlaySound(fencesound);
             isInTriggerzone = true;
-        };
+        }
 
-        if(other.name == "Enemy1" && other.GetType() == typeof(CapsuleCollider) && canPlay == true || other.name == "Enemy2" && other.GetType() == typeof(CapsuleCollider) && canPlay == true)
+
+        //This checks if the collider that entered the trigger zone has the name "Enemy1" or "Enemy2," is of type CapsuleCollider,
+        //and the variable canPlay is true. If all these conditions are met,
+        //it plays a death sound (death) using the soundController.
+        // It then sets canPlay to false, and sets isInTriggerzone to true.
+
+
+
+        if (other.name == "Enemy1" && other.GetType() == typeof(CapsuleCollider) && canPlay == true || other.name == "Enemy2" && other.GetType() == typeof(CapsuleCollider) && canPlay == true)
         {
             canPlay = false;
             soundController.PlaySound(death);
             isInTriggerzone = true;
         }
+        
+        //if (other.name == ("SoundColliderScream"))
+        //{
+            //soundController.PlaySound(monstergrowl);
+          //  isInTriggerzone = true;
+
+
+
+        //}
+        
     }
+
+
+    // below we make sure to stop the sound from playing again and resets the isInTriggerZone back to default false.
 
     private void OnTriggerExit(Collider other)
     {
         if (other.name == "Fences" )
         {
-            soundController.StopLoopSound();
+         //   soundController.StopLoopSound();
+            isInTriggerzone = false;
+        }
+        if (other.name == "SoundColliderScream")
+        {
+         //   soundController.StopLoopSound();
             isInTriggerzone = false;
         }
     }
