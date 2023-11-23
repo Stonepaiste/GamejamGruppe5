@@ -15,14 +15,18 @@ public class EnemyBehaviourScript : MonoBehaviour
     private NavMeshAgent _agent;
     private float reachedDestinationThreshold = 0.2f;
     private int _locationIndex = 0;
+    public PlayerMovement pm;
     
     private GameObject LastPosition;
     private bool PlayerInRange = false;
     private MouseLook mouseLookScript;
 
+    private bool canMove;
+
 
     void Start()
     {
+        canMove = true;
         _agent = GetComponent<NavMeshAgent>();
         Player = GameObject.Find("FirstPersonPlayer").transform;
         mouseLookScript = FindObjectOfType<MouseLook>();
@@ -35,23 +39,31 @@ public class EnemyBehaviourScript : MonoBehaviour
     {
         FlashOn = mouseLookScript.flashlightEnabled;
 
-        if (_agent.remainingDistance < reachedDestinationThreshold && !_agent.pathPending)
+        if (pm.isDead == true)
         {
-            MoveToNextPatrolLocation();
+            canMove = false;
         }
 
-        if (PlayerInRange && FlashOn)
+        if (canMove)
         {
-            _agent.destination = Player.position;
-        }
-
-        if (!FlashOn && LastPosition != null)
-        {
-            _agent.destination = LastPosition.transform.position;
-
-            if (Vector3.Distance(transform.position, LastPosition.transform.position) < reachedDestinationThreshold)
+            if (_agent.remainingDistance < reachedDestinationThreshold && !_agent.pathPending)
             {
-                Destroy(LastPosition);
+                MoveToNextPatrolLocation();
+            }
+
+            if (PlayerInRange && FlashOn)
+            {
+                _agent.destination = Player.position;
+            }
+
+            if (!FlashOn && LastPosition != null)
+            {
+                _agent.destination = LastPosition.transform.position;
+
+                if (Vector3.Distance(transform.position, LastPosition.transform.position) < reachedDestinationThreshold)
+                {
+                    Destroy(LastPosition);
+                }
             }
         }
     }
