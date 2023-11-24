@@ -21,7 +21,7 @@ public class EnemyBehaviourScript : MonoBehaviour
     private bool PlayerInRange = false;
     private MouseLook mouseLookScript;
 
-    private bool canMove;
+    public bool canMove;
 
 
     void Start()
